@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lam An Binh — Cypherpunk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Share Tech Mono',monospace;
+  background:#05080f;
+  color:#00ffcc;
+  overflow-x:hidden;
+}
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+.content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+}
+h1{
+  font-size:56px;
+  letter-spacing:4px;
+  text-align:center;
+  text-shadow:0 0 20px #00ffcc;
+}
+.subtitle{
+  text-align:center;
+  opacity:.8;
+  margin-bottom:80px;
+}
+section{
+  border:1px solid rgba(0,255,204,.25);
+  border-radius:12px;
+  padding:30px;
+  margin-bottom:40px;
+  background:rgba(0,0,0,.6);
+  box-shadow:0 0 30px rgba(0,255,204,.05);
+}
+section h2{
+  letter-spacing:2px;
+  margin-top:0;
+}
+ul{padding-left:20px;}
+footer{
+  text-align:center;
+  opacity:.6;
+  margin-top:80px;
+  font-size:13px;
+}
+.glitch{
+  position:relative;
+}
+.glitch::before,
+.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  left:0;
+}
+.glitch::before{
+  color:#ff00ff;
+  animation:glitch 2s infinite;
+}
+.glitch::after{
+  color:#00ffff;
+  animation:glitch 1.5s infinite reverse;
+}
+@keyframes glitch{
+  0%{clip-path:inset(0 0 90% 0)}
+  20%{clip-path:inset(30% 0 50% 0)}
+  40%{clip-path:inset(10% 0 70% 0)}
+  60%{clip-path:inset(40% 0 30% 0)}
+  80%{clip-path:inset(20% 0 60% 0)}
+  100%{clip-path:inset(0 0 90% 0)}
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="content">
+  <h1 class="glitch" data-text="LAM AN BINH">LAM AN BINH</h1>
+  <p class="subtitle">hevuong · nguoinhon · adunguoinhon</p>
+
+  <section>
+    <h2>ABOUT</h2>
+    <p>
+      Anh không tự cho rằng bản thân mình là một vị triết gia rành đời<br>
+      Suy nghĩ người ta cũng giống như anh chỉ là họ không viết ra thành lời
+    </p>
+  </section>
+
+  <section>
+    <h2>HOBBY</h2>
+    <ul>
+      <li>Nghe nhạc</li>
+      <li>Đọc light novel, manga</li>
+      <li>Đá bóng</li>
+      <li>Chơi game</li>
+    </ul>
+    <p>
+      In-game Liên Quân: </i><br>
+      In-game FC Online (FCO): <b>HSGSxBinhLam</b><br>
+      UID Genshin Impact: <b>841096833</b>
+    </p>
+  </section>
+
+  <section>
+    <h2>CONTACT</h2>
+    <p>
+      Instagram: <b>@adunguoinhon</b><br>
+      Facebook: <b>Lam Binh</b><br>
+      Discord: <b>adunguoinhon</b>
+    </p>
+  </section>
+
+  <footer>
+    © 2026 · encrypted mind · free soul
+  </footer>
+</div>
+
+<script>
+const c=document.getElementById("matrix");
+const ctx=c.getContext("2d");
+function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+resize();
+window.addEventListener("resize",resize);
+
+const chars="01";
+const fontSize=14;
+const columns=Math.floor(c.width/fontSize);
+const drops=Array(columns).fill(1);
+
+function draw(){
+  ctx.fillStyle="rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle="#00ffcc";
+  ctx.font=fontSize+"px monospace";
+  for(let i=0;i<drops.length;i++){
+    const text=chars[Math.floor(Math.random()*chars.length)];
+    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    drops[i]=(drops[i]*fontSize>c.height||Math.random()>0.95)?0:drops[i]+1;
+  }
+}
+setInterval(draw,50);
+</script>
+
+</body>
+</html>
