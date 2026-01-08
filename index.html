@@ -4,21 +4,28 @@
 <meta charset="UTF-8">
 <title>Lam An Binh — Cypherpunk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
 body{
-  margin:0;
   font-family:'Share Tech Mono',monospace;
   background:#05080f;
   color:#00ffcc;
   overflow-x:hidden;
 }
+
+/* MATRIX */
 canvas{
   position:fixed;
   inset:0;
   z-index:0;
 }
+
+/* CONTENT */
 .content{
   position:relative;
   z-index:2;
@@ -26,60 +33,105 @@ canvas{
   margin:auto;
   padding:80px 20px;
 }
+
+/* LINKS */
+a{
+  color:#00ffcc;
+  text-decoration:none;
+}
+a:hover{
+  text-shadow:0 0 10px #00ffcc;
+}
+
+/* TITLE */
 h1{
   font-size:56px;
   letter-spacing:4px;
   text-align:center;
-  text-shadow:0 0 20px #00ffcc;
+  margin-bottom:14px;
 }
-.subtitle{
-  text-align:center;
-  opacity:.8;
-  margin-bottom:80px;
-}
-section{
-  border:1px solid rgba(0,255,204,.25);
-  border-radius:12px;
-  padding:30px;
-  margin-bottom:40px;
-  background:rgba(0,0,0,.6);
-  box-shadow:0 0 30px rgba(0,255,204,.05);
-}
-section h2{
-  letter-spacing:2px;
-  margin-top:0;
-}
-ul{padding-left:20px;}
-footer{
-  text-align:center;
-  opacity:.6;
-  margin-top:80px;
-  font-size:13px;
-}
+
+/* GLITCH */
 .glitch{
   position:relative;
+  display:inline-block;
+  overflow:hidden;
+  text-shadow:0 0 20px #00ffcc;
 }
 .glitch::before,
 .glitch::after{
   content:attr(data-text);
   position:absolute;
-  left:0;
+  inset:0;
+  opacity:.8;
+  pointer-events:none;
 }
 .glitch::before{
   color:#ff00ff;
-  animation:glitch 2s infinite;
+  animation:glitch1 2.2s infinite linear;
 }
 .glitch::after{
   color:#00ffff;
-  animation:glitch 1.5s infinite reverse;
+  animation:glitch2 1.6s infinite linear;
 }
-@keyframes glitch{
+@keyframes glitch1{
   0%{clip-path:inset(0 0 90% 0)}
-  20%{clip-path:inset(30% 0 50% 0)}
-  40%{clip-path:inset(10% 0 70% 0)}
-  60%{clip-path:inset(40% 0 30% 0)}
-  80%{clip-path:inset(20% 0 60% 0)}
+  30%{clip-path:inset(35% 0 40% 0)}
+  60%{clip-path:inset(15% 0 70% 0)}
   100%{clip-path:inset(0 0 90% 0)}
+}
+@keyframes glitch2{
+  0%{clip-path:inset(80% 0 0 0)}
+  40%{clip-path:inset(50% 0 20% 0)}
+  100%{clip-path:inset(80% 0 0 0)}
+}
+
+.subtitle{
+  text-align:center;
+  opacity:.75;
+  margin-bottom:70px;
+}
+
+/* DECOR */
+.decor{
+  text-align:center;
+  opacity:.35;
+  letter-spacing:4px;
+  margin:40px 0;
+  font-size:14px;
+}
+
+/* SECTION */
+section{
+  border:1px solid rgba(0,255,204,.25);
+  border-radius:12px;
+  padding:30px;
+  margin-bottom:40px;
+  background:rgba(0,0,0,.65);
+  box-shadow:
+    0 0 30px rgba(0,255,204,.05),
+    inset 0 0 20px rgba(0,255,204,.05);
+}
+
+section h2{
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
+
+section p{
+  line-height:1.9;
+  opacity:.9;
+}
+
+ul{padding-left:20px}
+li{margin-bottom:6px}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  margin-top:80px;
+  font-size:13px;
+  opacity:.6;
 }
 </style>
 </head>
@@ -88,67 +140,105 @@ footer{
 <canvas id="matrix"></canvas>
 
 <div class="content">
-  <h1 class="glitch" data-text="LAM AN BINH">LAM AN BINH</h1>
-  <p class="subtitle">hevuong · nguoinhon · adunguoinhon</p>
 
+  <!-- TITLE -->
+  <h1>
+    <span class="glitch" data-text="LAM AN BINH">LAM AN BINH</span>
+  </h1>
+  <p class="subtitle">Hevuong · Nguoinhon · Adunguoinhon</p>
+
+  <!-- IDENTITY -->
   <section>
-    <h2>ABOUT</h2>
+    <h2>IDENTITY</h2>
     <p>
-      Anh không tự cho rằng bản thân mình là một vị triết gia rành đời<br>
-      Suy nghĩ người ta cũng giống như anh chỉ là họ không viết ra thành lời
+      Học Sinh Trường Chuyên KHTN Chuyên Tin<br>
+      Culi Dự Án HSGS-Code Camp Hè 2025 Tại HUS<br>
+      Trưởng Site Archimedes Dự Án HSGS-Code Camp Xuân 2026
     </p>
   </section>
 
+  <div class="decor">☠ 010101 ▓▒░ ARCHIMEDES ░▒▓ 101010 ☠</div>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>ABOUT</h2>
+    <p>
+      Anh Không Tự Cho Rằng Bản Thân Mình Là Một Vị <b>TRIẾT GIA RÀNH ĐỜI</b><br>
+      Suy Nghĩ Người Ta Cũng Giống Như Anh Chỉ Là Họ Không <b>VIẾT RA THÀNH LỜI</b>
+    </p>
+  </section>
+
+  <div class="decor">† SYSTEM ONLINE // ENCRYPTED MIND †</div>
+
+  <!-- HOBBY -->
   <section>
     <h2>HOBBY</h2>
     <ul>
-      <li>Nghe nhạc</li>
-      <li>Đọc light novel, manga</li>
-      <li>Đá bóng</li>
-      <li>Chơi game</li>
+      <li>Nghe Nhạc</li>
+      <li>Đọc Light Novel, Manga</li>
+      <li>Đá Bóng</li>
+      <li>Chơi Game</li>
     </ul>
     <p>
-      In-game Liên Quân: </i><br>
-      In-game FC Online (FCO): <b>HSGSxBinhLam</b><br>
+      In-Game FC Online (FCO): <b>HSGSxBinhLam</b><br>
       UID Genshin Impact: <b>841096833</b>
     </p>
   </section>
 
-  <section>
+  <!-- CONTACT -->
+  <section id="contact">
     <h2>CONTACT</h2>
     <p>
-      Instagram: <b>@adunguoinhon</b><br>
-      Facebook: <b>Lam Binh</b><br>
-      Discord: <b>adunguoinhon</b>
+      Facebook:
+      <a href="https://www.facebook.com/anbinh.lam.73/" target="_blank" rel="noopener noreferrer">
+        Lam Binh
+      </a>
+      <br>
+
+      Instagram:
+      <a href="https://www.instagram.com/adunguoinhon/" target="_blank" rel="noopener noreferrer">
+        @Adunguoinhon
+      </a>
+      <br>
+
+      Discord:
+      <b>Adunguoinhon</b>
     </p>
   </section>
 
   <footer>
-    © 2026 · encrypted mind · free soul
+    © 2026 · Encrypted Mind · Free Soul
   </footer>
+
 </div>
 
 <script>
 const c=document.getElementById("matrix");
 const ctx=c.getContext("2d");
-function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+
+function resize(){
+  c.width=window.innerWidth;
+  c.height=window.innerHeight;
+}
 resize();
 window.addEventListener("resize",resize);
 
 const chars="01";
 const fontSize=14;
-const columns=Math.floor(c.width/fontSize);
-const drops=Array(columns).fill(1);
+let cols=Math.floor(c.width/fontSize);
+let drops=Array(cols).fill(1);
 
 function draw(){
-  ctx.fillStyle="rgba(0,0,0,0.05)";
+  ctx.fillStyle="rgba(0,0,0,0.06)";
   ctx.fillRect(0,0,c.width,c.height);
   ctx.fillStyle="#00ffcc";
   ctx.font=fontSize+"px monospace";
+
   for(let i=0;i<drops.length;i++){
-    const text=chars[Math.floor(Math.random()*chars.length)];
-    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-    drops[i]=(drops[i]*fontSize>c.height||Math.random()>0.95)?0:drops[i]+1;
+    const t=chars[Math.random()*2|0];
+    ctx.fillText(t,i*fontSize,drops[i]*fontSize);
+    if(drops[i]*fontSize>c.height && Math.random()>0.975) drops[i]=0;
+    drops[i]++;
   }
 }
 setInterval(draw,50);
