@@ -1,61 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <title>Lam An Binh — Cypherpunk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 
 body{
-  font-family:'Share Tech Mono',monospace;
+  font-family:'JetBrains Mono',monospace;
   background:#05080f;
   color:#00ffcc;
   overflow-x:hidden;
 }
 
-/* MATRIX */
+/* matrix background */
 canvas{
   position:fixed;
   inset:0;
   z-index:0;
 }
 
-/* CONTENT */
+/* layout */
 .content{
   position:relative;
   z-index:2;
   max-width:900px;
   margin:auto;
-  padding:80px 20px;
+  padding:90px 20px;
 }
 
-/* LINKS */
-a{
-  color:#00ffcc;
-  text-decoration:none;
-}
-a:hover{
-  text-shadow:0 0 10px #00ffcc;
-}
-
-/* TITLE */
+/* header */
 h1{
+  text-align:center;
   font-size:56px;
   letter-spacing:4px;
-  text-align:center;
-  margin-bottom:14px;
+  margin-bottom:12px;
 }
 
-/* GLITCH */
+/* glitch */
 .glitch{
   position:relative;
   display:inline-block;
-  overflow:hidden;
   text-shadow:0 0 20px #00ffcc;
 }
 .glitch::before,
@@ -63,36 +53,63 @@ h1{
   content:attr(data-text);
   position:absolute;
   inset:0;
-  opacity:.8;
-  pointer-events:none;
+  opacity:.75;
 }
 .glitch::before{
   color:#ff00ff;
-  animation:glitch1 2.2s infinite linear;
+  animation:gl1 2s infinite linear;
 }
 .glitch::after{
   color:#00ffff;
-  animation:glitch2 1.6s infinite linear;
+  animation:gl2 1.5s infinite linear;
 }
-@keyframes glitch1{
-  0%{clip-path:inset(0 0 90% 0)}
-  30%{clip-path:inset(35% 0 40% 0)}
-  60%{clip-path:inset(15% 0 70% 0)}
-  100%{clip-path:inset(0 0 90% 0)}
+@keyframes gl1{
+  0%{clip-path:inset(0 0 85% 0)}
+  50%{clip-path:inset(40% 0 30% 0)}
+  100%{clip-path:inset(0 0 85% 0)}
 }
-@keyframes glitch2{
+@keyframes gl2{
   0%{clip-path:inset(80% 0 0 0)}
-  40%{clip-path:inset(50% 0 20% 0)}
+  50%{clip-path:inset(50% 0 20% 0)}
   100%{clip-path:inset(80% 0 0 0)}
 }
 
 .subtitle{
   text-align:center;
-  opacity:.75;
-  margin-bottom:70px;
+  opacity:.7;
+  margin-bottom:80px;
 }
 
-/* DECOR */
+/* section */
+section{
+  background:rgba(0,0,0,.65);
+  border:1px solid rgba(0,255,204,.25);
+  border-radius:12px;
+  padding:30px;
+  margin-bottom:40px;
+  box-shadow:0 0 30px rgba(0,255,204,.05);
+}
+
+section h2{
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+
+/* quote */
+.quote{
+  font-style:italic;
+  line-height:2;
+  border-left:3px solid rgba(0,255,204,.5);
+  padding-left:22px;
+}
+
+/* list */
+ul{
+  padding-left:20px;
+}
+li{margin-bottom:6px}
+
+/* decor */
 .decor{
   text-align:center;
   opacity:.35;
@@ -101,32 +118,16 @@ h1{
   font-size:14px;
 }
 
-/* SECTION */
-section{
-  border:1px solid rgba(0,255,204,.25);
-  border-radius:12px;
-  padding:30px;
-  margin-bottom:40px;
-  background:rgba(0,0,0,.65);
-  box-shadow:
-    0 0 30px rgba(0,255,204,.05),
-    inset 0 0 20px rgba(0,255,204,.05);
+/* links */
+a{
+  color:#00ffcc;
+  text-decoration:none;
+}
+a:hover{
+  text-shadow:0 0 10px #00ffcc;
 }
 
-section h2{
-  letter-spacing:3px;
-  margin-bottom:18px;
-}
-
-section p{
-  line-height:1.9;
-  opacity:.9;
-}
-
-ul{padding-left:20px}
-li{margin-bottom:6px}
-
-/* FOOTER */
+/* footer */
 footer{
   text-align:center;
   margin-top:80px;
@@ -141,73 +142,56 @@ footer{
 
 <div class="content">
 
-  <!-- TITLE -->
   <h1>
     <span class="glitch" data-text="LAM AN BINH">LAM AN BINH</span>
   </h1>
-  <p class="subtitle">Hevuong · Nguoinhon · Adunguoinhon</p>
+  <p class="subtitle">hevuong · nguoinhon · adunguoinhon</p>
 
-  <!-- IDENTITY -->
   <section>
     <h2>IDENTITY</h2>
     <p>
-      Học Sinh Trường Chuyên KHTN Chuyên Tin<br>
-      Culi Dự Án HSGS-Code Camp Hè 2025 Tại HUS<br>
-      Trưởng Site Archimedes Dự Án HSGS-Code Camp Xuân 2026
+      Học Sinh Chuyên Tin HSGS<br>
+      Culi tại dự án HSGS-Code Camp Hè 2025 Tại HUS<br>
+      Trưởng site Archimedes tại dự án HSGS-Code Camp Xuân 2026
     </p>
   </section>
 
-  <div class="decor">☠ 010101 ▓▒░ ARCHIMEDES ░▒▓ 101010 ☠</div>
+  <div class="decor">▓▒░ archimedes // system online ░▒▓</div>
 
-  <!-- ABOUT -->
   <section>
     <h2>ABOUT</h2>
-    <p>
-      Anh Không Tự Cho Rằng Bản Thân Mình Là Một Vị <b>TRIẾT GIA RÀNH ĐỜI</b><br>
-      Suy Nghĩ Người Ta Cũng Giống Như Anh Chỉ Là Họ Không <b>VIẾT RA THÀNH LỜI</b>
-    </p>
+    <div class="quote">
+      anh không tự cho rằng bản thân mình là một<br>
+      <b>VỊ TRIẾT GIA RÀNH ĐỜI</b><br><br>
+      suy nghĩ người ta cũng giống như anh chỉ là họ không<br>
+      <b>VIẾT RA THÀNH LỜI</b>
+    </div>
   </section>
 
-  <div class="decor">† SYSTEM ONLINE // ENCRYPTED MIND †</div>
+  <div class="decor">† encrypted mind · free soul †</div>
 
-  <!-- HOBBY -->
   <section>
-    <h2>HOBBY</h2>
-    <ul>
-      <li>Nghe Nhạc</li>
-      <li>Đọc Light Novel, Manga</li>
-      <li>Đá Bóng</li>
-      <li>Chơi Game</li>
-    </ul>
+    <h2>GAME</h2>
     <p>
+      In-Game AOV:
       In-Game FC Online (FCO): <b>HSGSxBinhLam</b><br>
       UID Genshin Impact: <b>841096833</b>
     </p>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <h2>CONTACT</h2>
     <p>
       Facebook:
-      <a href="https://www.facebook.com/anbinh.lam.73/" target="_blank" rel="noopener noreferrer">
-        Lam Binh
-      </a>
-      <br>
-
+      <a href="https://www.facebook.com/anbinh.lam.73/" target="_blank">Lam Binh</a><br>
       Instagram:
-      <a href="https://www.instagram.com/adunguoinhon/" target="_blank" rel="noopener noreferrer">
-        @Adunguoinhon
-      </a>
-      <br>
-
-      Discord:
-      <b>Adunguoinhon</b>
+      <a href="https://www.instagram.com/adunguoinhon/" target="_blank">@adunguoinhon</a><br>
+      Discord: <b>adunguoinhon</b>
     </p>
   </section>
 
   <footer>
-    © 2026 · Encrypted Mind · Free Soul
+    © 2026 · encrypted mind · free soul
   </footer>
 
 </div>
@@ -217,27 +201,26 @@ const c=document.getElementById("matrix");
 const ctx=c.getContext("2d");
 
 function resize(){
-  c.width=window.innerWidth;
-  c.height=window.innerHeight;
+  c.width=innerWidth;
+  c.height=innerHeight;
 }
 resize();
-window.addEventListener("resize",resize);
+addEventListener("resize",resize);
 
 const chars="01";
-const fontSize=14;
-let cols=Math.floor(c.width/fontSize);
+const size=14;
+let cols=Math.floor(c.width/size);
 let drops=Array(cols).fill(1);
 
 function draw(){
   ctx.fillStyle="rgba(0,0,0,0.06)";
   ctx.fillRect(0,0,c.width,c.height);
   ctx.fillStyle="#00ffcc";
-  ctx.font=fontSize+"px monospace";
-
+  ctx.font=size+"px monospace";
   for(let i=0;i<drops.length;i++){
     const t=chars[Math.random()*2|0];
-    ctx.fillText(t,i*fontSize,drops[i]*fontSize);
-    if(drops[i]*fontSize>c.height && Math.random()>0.975) drops[i]=0;
+    ctx.fillText(t,i*size,drops[i]*size);
+    if(drops[i]*size>c.height && Math.random()>0.97) drops[i]=0;
     drops[i]++;
   }
 }
